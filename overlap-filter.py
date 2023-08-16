@@ -1,7 +1,9 @@
+import os
 import json
 import numpy as np
 from scipy.spatial.transform import Rotation as R
 from tqdm import tqdm
+from shutil import copyfile
 
 def calculate_frustum_overlap(frustum1, frustum2, K):
     # Calculate the overlap between two camera frustums using the projection method
@@ -87,7 +89,20 @@ def select_frames(file_path, overlap_threshold=0.60, target_ratio=1/3):
 
     return [frame[0] for frame in selected_frames]
 
-file_path='/home/users/u7143478/Desktop/JSON_DATA/P01_01.json'
-selected_frames=select_frames(file_path)
-print(selected_frames)
+json_data_dir = './JSON_DATA'
+frames_dir = './frames'
+selected_frames_dir = './selected_frames'
 
+for file_name in tqdm(os.listdir(json_data_dir)):
+    file_path = os.path.join(json_data_dir, file_name)
+    folder_name = os.path.splitext(file_name)[0]
+    src_folder_path = os.path.join(frames_dir, folder_name)
+    dst_folder_path = os.path.join(selected_frames_dir, folder_name)
+    if not os.path.exists(dst_folder_path):
+        os.makedirs(dst_folder_path)
+    selected_frames = select_frames(file_path)
+    for frame in tqdm(selected_frames):
+        # Copy the selected frame to the destination folder
+        src_file_path = os.path.join(src_folder_path, frame)
+        dst_file_path = os.path.join(dst_folder_path, frame)
+        copyfile(src_file_path, dst_file_path)

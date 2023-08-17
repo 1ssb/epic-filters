@@ -89,8 +89,12 @@
         <h3>Hands Filter</h3>
         <p><strong>Motivation:</strong> This filter focuses on selecting images with human hands while minimizing occlusion of the environment. It employs the ultralytics YOLOv8 object detection model to detect persons in images and calculate the bounding box area ratio. Images with ratios below a certain threshold are copied to a destination folder.</p>
         <p><strong>Description:</strong> The filter consists of two main functions: "person area ratio" and "main." The former calculates the bounding box area ratio of detected persons, while the latter applies this calculation to filter images. The code can be adapted for other filtering criteria or detection models.</p>
-
+        
         <h3>Frustrum Overlap Filter</h3>
+        <div style="background-image: url('overlap.png'); background-repeat: repeat; text-align: center;">
+            <img src="overlap.png" alt="Centered Image">
+        </div>
+
         <p><strong>Design Choice:</strong> This filter selects frames based on camera frustum overlap. It employs an overlap threshold and target ratio to determine which frames to retain. The code provides flexibility by allowing different overlap reduction methods. Camera pose metadata in quaternion format from the Epic Fields dataset is utilized.</p>
         <p><strong>Description:</strong> The filter comprises two functions: "calculate frustum overlap" and "select frames." The former computes overlap ratios between frustums using projection methods, while the latter reads JSON data to extract camera and image information. Frames with high overlap are removed until reaching the target frame count.</p>
 

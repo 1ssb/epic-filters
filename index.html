@@ -55,7 +55,7 @@
 <body>
     <header>
         <h1>Epic Filters</h1>
-        <p>NeRF Data Filters for EPIC Kitchens Dataset</p>
+        <p>NeRF Data Filters for the EPIC Kitchens Dataset</p>
     </header>
 
     <main>
@@ -67,15 +67,15 @@
             <li><a href="https://github.com/epic-kitchens/">Dataset from EPIC Kitchens</a></li>
         </ol>
 
-        <h2>Preprocessing (as of 2023 on Python 3.10)</h2>
+        <h2>Preprocessing (as of 2023, using Python 3.10)</h2>
         <ol>
-            <li>Download the EPic Kitchens dataset rgb frames and the Epic FIelds JSON Data.</li>
+            <li>Download the EPIC Kitchens dataset RGB frames and the Epic Fields JSON Data.</li>
             <li>Clone this repository: <code>git clone https://github.com/1ssb/epic-filters</code></li>
             <li>Configure the unzipper code with the target directory and run it as <code>python unzipper.py</code></li>
             <li>Install Libraries: <code>pip install ultralytics cv2 opencv-python Pillow tqdm</code></li>
-            <li>Run the overlap filter first, followed by the dark filter, then the hands filter and finally the fit filter (configure before running and check if necessary) as <code>python {filter_name}.py</code></li>
+            <li>Run the overlap filter first, followed by the dark filter, then the hands filter, and finally the fit filter (configure before running and check if necessary) using <code>python {filter_name}.py</code></li>
         </ol>
-        <p><em>Note: Recommended to use a CUDA-enabled GPU (Tested on an RTX 4090) for the overlap filter. If you would like to use the CPU, it's possible to modify the code. It's recommended to use concurrency-based Lock methods for the transformations in Overlap-filter.</em></p>
+        <p><em>Note: It is recommended to use a CUDA-enabled GPU (Tested on an RTX 4090) for the overlap filter. If you prefer to use the CPU, you can modify the code. It is advisable to use concurrency-based Lock methods for transformations in the Overlap filter.</em></p>
 
         <h2>Usage</h2>
         <h3>Hands Filter</h3>

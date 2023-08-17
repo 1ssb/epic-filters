@@ -4,6 +4,7 @@
 This repo provides some filters for NeRF data preparation for the EPIC Kitchens Dataset as of 2023 and uses the Epic Fields JSON files which are really well prepared. Tune to your own needs.
 
 1> JSON files from the EPIC Fields dataset: https://github.com/epic-kitchens/epic-Fields-code
+
 2> Dataset from EPIC Kitchens: https://github.com/epic-kitchens/
 
 # Requirements (as of 2023)

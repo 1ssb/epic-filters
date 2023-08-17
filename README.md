@@ -12,6 +12,6 @@ Minimal dataset for NeRF training coming soon.
 title={Epic Kitchen Filters},
 author={Subhransu S. Bhattacharjee},
 year={2023},
-howpublished={https://github.com/1ssb/epic-filters/}
+howpublished= {https://github.com/1ssb/epic-filters/}
 }
 

@@ -38,11 +38,9 @@
     </header>
 
     <main>
-        <h2>Description</h2>
-        <p>This repository provides filters for NeRF data preparation for the EPIC Kitchens Dataset as of 2023. It utilizes the Epic Fields JSON files which are well-prepared. These filters can be tuned to meet your specific needs.</p>
-        <p><strong>Update:</strong> An unzipper Python script has been added, which extracts and cleans all the EPIC Kitchens data. A processed minimal RGB frames dataset for NeRF training is coming soon.</p>
+        <p><strong>Update:</strong> This is an ongoing project. A fully processed minimal RGB frames dataset for NeRF training is coming soon.</p>
 
-        <h2>References</h2>
+        <h2>Resources</h2>
         <ol>
             <li><a href="https://github.com/epic-kitchens/epic-Fields-code">JSON files from the EPIC Fields dataset</a></li>
             <li><a href="https://github.com/epic-kitchens/">Dataset from EPIC Kitchens</a></li>
@@ -50,7 +48,7 @@
 
         <h2>Preprocessing (as of 2023 on Python 3.10)</h2>
         <ol>
-            <li>Download the EPic Kitchens dataset rgb frames</li>
+            <li>Download the EPic Kitchens dataset rgb frames and the Epic FIelds JSON Data.</li>
             <li>Clone this repository: <code>git clone https://github.com/1ssb/epic-filters</code></li>
             <li>Configure the unzipper code with the target directory and run it as <code>python unzipper.py</code></li>
             <li>Install Libraries: <code>pip install ultralytics cv2 opencv-python Pillow tqdm</code></li>
@@ -78,7 +76,10 @@
     </main>
 
     <footer>
-        <p>&copy; 2023 Epic Filters</p>
+    <p>&copy; 2023 Subhransu S. Bhattacharjee. This work is protected under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.</p>
+    <div class="footer-icons">
+        <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer"><img src="mit-license-thumbnail.png" alt="MIT License"></a>
+    </div>
     </footer>
 </body>
 </html>

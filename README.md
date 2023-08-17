@@ -3,6 +3,8 @@
 # Description
 This repo provides some filters for NeRF data preparation for the EPIC Kitchens Dataset as of 2023 and uses the Epic Fields JSON files which are really well prepared. Tune to your own needs.
 
+Update: Added an unzipper file. Minimized rgb frames dataset for NeRF coming soon.
+
 # References
 
 1. JSON files from the EPIC Fields dataset: https://github.com/epic-kitchens/epic-Fields-code

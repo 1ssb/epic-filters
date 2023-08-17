@@ -56,5 +56,5 @@ def process_directories(base_directory):
             print("Could not find the folders correctly")
 
 # Main input directory
-main_directory = '/home/users/u7143478/EPIC-KITCHENS'
+main_directory = '../EPIC-KITCHENS'
 process_directories(main_directory)

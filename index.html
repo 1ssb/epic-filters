@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Filters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Epic Filters</h1>
+        <p>NeRF Data Filters for EPIC Kitchens Dataset</p>
+    </header>
+
+    <main>
+        <h2>Description</h2>
+        <p>This repository provides filters for NeRF data preparation for the EPIC Kitchens Dataset as of 2023. It utilizes the Epic Fields JSON files which are well-prepared. These filters can be tuned to meet your specific needs.</p>
+        <p><strong>Update:</strong> An unzipper Python script has been added, which extracts and cleans all the EPIC Kitchens data. A processed minimal RGB frames dataset for NeRF training is coming soon.</p>
+
+        <h2>References</h2>
+        <ol>
+            <li><a href="https://github.com/epic-kitchens/epic-Fields-code">JSON files from the EPIC Fields dataset</a></li>
+            <li><a href="https://github.com/epic-kitchens/">Dataset from EPIC Kitchens</a></li>
+        </ol>
+
+        <h2>Requirements (as of 2023)</h2>
+        <ol>
+            <li>Clone this repository: <code>git clone https://github.com/1ssb/epic-filters</code></li>
+            <li>Install Python 3.10</li>
+            <li>Install Libraries: <code>pip install ultralytics cv2 opencv-python Pillow tqdm</code></li>
+            <li>Recommended to use a CUDA-enabled GPU (Tested on an RTX 4090)</li>
+        </ol>
+        <p><em>Note: If you would like to use the CPU, it's possible to modify the code. It's recommended to use concurrency-based Lock methods for the transformations in Overlap-filter.</em></p>
+
+        <h2>Usage</h2>
+        <p>For usage instructions, please refer to the <a href="https://github.com/1ssb/epic-filters/blob/main/Filter_Code_Documentation.pdf">Filter Code Documentation PDF</a>.</p>
+
+        <h2>Cite as:</h2>
+        <p><code>@misc{epic-filters, title={Epic Kitchen Filters}, author={1ssb}, year={2021}, howpublished={<a href="https://github.com/1ssb/epic-filters/">https://github.com/1ssb/epic-filters/</a>}}</code></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Epic Filters</p>
+    </footer>
+</body>
+</html>

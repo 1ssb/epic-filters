@@ -29,6 +29,27 @@
             padding: 1rem;
             text-align: center;
         }
+
+        h2 {
+            border-bottom: 1px solid #007bff;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        ol {
+            padding-left: 2rem;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+        }
+
+        p em {
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -56,27 +77,27 @@
         </ol>
         <p><em>Note: Recommended to use a CUDA-enabled GPU (Tested on an RTX 4090) for the overlap filter. If you would like to use the CPU, it's possible to modify the code. It's recommended to use concurrency-based Lock methods for the transformations in Overlap-filter.</em></p>
 
-        <p><strong>Usage</strong></p>
-        <p><em>Hands Filter</em></p>
+        <h2>Usage</h2>
+        <h3>Hands Filter</h3>
         <p><strong>Motivation:</strong> This filter focuses on selecting images with human hands while minimizing occlusion of the environment. It employs the ultralytics YOLOv8 object detection model to detect persons in images and calculate the bounding box area ratio. Images with ratios below a certain threshold are copied to a destination folder.</p>
         <p><strong>Description:</strong> The filter consists of two main functions: "person area ratio" and "main." The former calculates the bounding box area ratio of detected persons, while the latter applies this calculation to filter images. The code can be adapted for other filtering criteria or detection models.</p>
 
-        <p><em>Frustrum Overlap Filter</em></p>
+        <h3>Frustrum Overlap Filter</h3>
         <p><strong>Design Choice:</strong> This filter selects frames based on camera frustum overlap. It employs an overlap threshold and target ratio to determine which frames to retain. The code provides flexibility by allowing different overlap reduction methods. Camera pose metadata in quaternion format from the Epic Fields dataset is utilized.</p>
         <p><strong>Description:</strong> The filter comprises two functions: "calculate frustum overlap" and "select frames." The former computes overlap ratios between frustums using projection methods, while the latter reads JSON data to extract camera and image information. Frames with high overlap are removed until reaching the target frame count.</p>
 
-        <p><em>Post Processing</em></p>
+        <h3>Post Processing</h3>
         <p><strong>Dark Filter:</strong> This code removes dark images from a specified directory based on a given threshold value.</p>
-        <p><strong>Fit:</strong> This code resizes and center-crops images in a specified directory using PIL library.</p>
+        <p><strong>Fit:</strong> This code resizes and center-crops images in a specified directory using the PIL library.</p>
 
-<p>For more details, please refer to the <a href="https://github.com/1ssb/epic-filters/blob/main/Filter_Code_Documentation.pdf">Filter Code Documentation</a>.</p>
+        <p>For more details, please refer to the <a href="https://github.com/1ssb/epic-filters/blob/main/Filter_Code_Documentation.pdf">Filter Code Documentation</a>.</p>
 
         <h2>Cite as:</h2>
         <p><code>@misc{epic-filters, title={Epic Kitchen Filters}, author={Subhransu S. Bhattacharjee}, year={2023}, howpublished={<a href="https://github.com/1ssb/epic-filters/">https://github.com/1ssb/epic-filters/</a>}}</code></p>
     </main>
 
     <footer>
-    <p>&copy; 2023 Subhransu S. Bhattacharjee. This work is protected under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.</p>
+        <p>&copy; 2023 Subhransu S. Bhattacharjee. This work is protected under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.</p>
     </footer>
 </body>
 </html>

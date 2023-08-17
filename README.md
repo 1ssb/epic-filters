@@ -19,7 +19,7 @@ Update: Added an unzipper python script which extracts & cleans all the EPIC Kit
 PS: If you would like to use the CPU it shouldn't be too hard to modify the code. It is recommended to use concurrency-based Lock methods for the transformations in Overlap-filter.
 
 # Usage 
-Described in the pdf document.
+Described in the pdf document: https://github.com/1ssb/epic-filters/blob/main/Filter_Code_Documentation.pdf.
 
 # Cite as:
 ``@misc{epic-filters, title={Epic Kitchen Filters}, author={1ssb}, year={2021}, howpublished={\url{https://github.com/1ssb/epic-filters/}}}``

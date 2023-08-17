@@ -70,7 +70,7 @@
         <h2>Preprocessing (as of 2023, using Python 3.10)</h2>
         <ol>
             <li>Download the EPIC Kitchens dataset RGB frames and the Epic Fields JSON Data.</li>
-            <li>Copy and Paste this code to the Terminal in yur preferred directory: <code>git clone https://github.com/1ssb/epic-filters && cd epic-filters && shopt -s extglob && rm -rf !(filters)</code>. Replace master with the appropriate branch name if you're using a different branch.</li>
+            <li>Copy and Paste this code to the Terminal in your preferred directory and run: <code>git clone https://github.com/1ssb/epic-filters && cd epic-filters && shopt -s extglob && rm -rf !(filters)</code>.</li>
             <li>Configure the unzipper code with the target directory and run it as <code>python unzipper.py</code></li>
             <li>Install Libraries: <code>pip install ultralytics cv2 opencv-python Pillow tqdm</code></li>
             <li>Run the overlap filter first, followed by the dark filter, then the hands filter, and finally the fit filter (configure before running and check if necessary) using <code>python {filter_name}.py</code></li>

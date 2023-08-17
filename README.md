@@ -14,7 +14,7 @@ This project is an ongoing effort. We are in the process of preparing a fully pr
 ## Preprocessing (as of 2023, using Python 3.10)
 
 1. Download the EPIC Kitchens dataset RGB frames and the Epic Fields JSON Data.
-2. Clone this repository: `git clone https://github.com/1ssb/epic-filters`
+2. Clone this repository: `git clone https://github.com/1ssb/epic-filters && cd epic-filters && git config core.sparseCheckout true && echo "filters/*" >> .git/info/sparse-checkout && git checkout master`. Replace master with the appropriate branch name if you're using a different branch. After running these commands, your local repository will only contain the contents of the "filters" folder from the repository.
 3. Configure the unzipper code with the target directory and run it: `python unzipper.py`
 4. Install required libraries: `pip install ultralytics cv2 opencv-python Pillow tqdm`
 5. Run the filters sequentially: overlap filter, dark filter, hands filter, and fit filter, using: `python {filter_name}.py`

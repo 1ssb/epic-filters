@@ -48,17 +48,30 @@
             <li><a href="https://github.com/epic-kitchens/">Dataset from EPIC Kitchens</a></li>
         </ol>
 
-        <h2>Requirements (as of 2023)</h2>
+        <h2>Preprocessing (as of 2023 on Python 3.10)</h2>
         <ol>
+            <li>Download the EPic Kitchens dataset rgb frames</li>
             <li>Clone this repository: <code>git clone https://github.com/1ssb/epic-filters</code></li>
-            <li>Install Python 3.10</li>
+            <li>Configure the unzipper code with the target directory and run it as <code>python unzipper.py</code></li>
             <li>Install Libraries: <code>pip install ultralytics cv2 opencv-python Pillow tqdm</code></li>
-            <li>Recommended to use a CUDA-enabled GPU (Tested on an RTX 4090)</li>
+            <li>Run the overlap filter first, followed by the dark filter, then the hands filter and finally the fit filter (configure before running and check if necessary) as <code>python {filter_name}.py</code></li>
         </ol>
-        <p><em>Note: If you would like to use the CPU, it's possible to modify the code. It's recommended to use concurrency-based Lock methods for the transformations in Overlap-filter.</em></p>
+        <p><em>Note: Recommended to use a CUDA-enabled GPU (Tested on an RTX 4090) for the overlap filter. If you would like to use the CPU, it's possible to modify the code. It's recommended to use concurrency-based Lock methods for the transformations in Overlap-filter.</em></p>
 
-        <h2>Usage</h2>
-        <p>For usage instructions, please refer to the <a href="https://github.com/1ssb/epic-filters/blob/main/Filter_Code_Documentation.pdf">Filter Code Documentation PDF</a>.</p>
+        <p><strong>Usage</strong></p>
+        <p><em>Hands Filter</em></p>
+        <p><strong>Motivation:</strong> This filter focuses on selecting images with human hands while minimizing occlusion of the environment. It employs the ultralytics YOLOv8 object detection model to detect persons in images and calculate the bounding box area ratio. Images with ratios below a certain threshold are copied to a destination folder.</p>
+        <p><strong>Description:</strong> The filter consists of two main functions: "person area ratio" and "main." The former calculates the bounding box area ratio of detected persons, while the latter applies this calculation to filter images. The code can be adapted for other filtering criteria or detection models.</p>
+
+        <p><em>Frustrum Overlap Filter</em></p>
+        <p><strong>Design Choice:</strong> This filter selects frames based on camera frustum overlap. It employs an overlap threshold and target ratio to determine which frames to retain. The code provides flexibility by allowing different overlap reduction methods. Camera pose metadata in quaternion format from the Epic Fields dataset is utilized.</p>
+        <p><strong>Description:</strong> The filter comprises two functions: "calculate frustum overlap" and "select frames." The former computes overlap ratios between frustums using projection methods, while the latter reads JSON data to extract camera and image information. Frames with high overlap are removed until reaching the target frame count.</p>
+
+        <p><em>Post Processing</em></p>
+        <p><strong>Dark Filter:</strong> This code removes dark images from a specified directory based on a given threshold value.</p>
+        <p><strong>Fit:</strong> This code resizes and center-crops images in a specified directory using PIL library.</p>
+
+<p>For more details, please refer to the <a href="https://github.com/1ssb/epic-filters/blob/main/Filter_Code_Documentation.pdf">Filter Code Documentation</a>.</p>
 
         <h2>Cite as:</h2>
         <p><code>@misc{epic-filters, title={Epic Kitchen Filters}, author={1ssb}, year={2021}, howpublished={<a href="https://github.com/1ssb/epic-filters/">https://github.com/1ssb/epic-filters/</a>}}</code></p>

@@ -39,9 +39,24 @@ NeRF Data and Filters for the EPIC Kitchens Dataset
 
 ![Centered Image](overlap.png)
 
-**Design Choice**: This filter selects frames based on camera frustum overlap. It employs an overlap threshold and target ratio to determine which frames to retain. The code provides flexibility by allowing different overlap reduction methods. Camera pose metadata in quaternion format from the Epic Fields dataset is utilized.
+#### Overview
+Calculates overlap between pairs of 3D camera frustums using JSON files. Optimized for parallel execution.
 
-**Description**: The filter comprises two functions: "calculate frustum overlap" and "select frames." The former computes overlap ratios between frustums using projection methods, while the latter reads JSON data to extract camera and image information. Frames with high overlap are removed until reaching the target frame count.
+#### Dependencies
+- `os`, `json`, `numpy`, `scipy`, `tqdm`, `collections`, `concurrent.futures`
+
+#### Key Functions
+- `calculate_frustum_overlap(frustum1, frustum2, K)`: Computes overlap ratio between two frustums.
+- `calculate_frustum(pose, K, camera, n, f)`: Calculates frustum corners in world coordinates.
+- `select_frame_pairs(file_path, min_overlap, max_overlap)`: Filters frame pairs based on overlap.
+- `process_json_file(file_name)`: Processes each JSON file and writes frame pairs to a new JSON file.
+
+#### Execution Flow
+1. Set directories for JSON data and frame pairs.
+2. Parallelize `process_json_file` using `ThreadPoolExecutor`.
+3. Calculate and filter frame pairs in `select_frame_pairs`.
+4. Write frame pairs to new JSON files.
+
 
 ### Post Processing
 
